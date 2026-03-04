@@ -12,7 +12,6 @@ namespace ConsoleApp1.Services
 
         public DeskService()
         {
-            // Добавим тестовые данные
             desks.Add(new Desk { Id = nextId++, Number = 1, Type = "Обычное место", PricePerHour = 200, IsActive = true });
             desks.Add(new Desk { Id = nextId++, Number = 2, Type = "Обычное место", PricePerHour = 200, IsActive = true });
             desks.Add(new Desk { Id = nextId++, Number = 3, Type = "VIP место", PricePerHour = 500, IsActive = true });
