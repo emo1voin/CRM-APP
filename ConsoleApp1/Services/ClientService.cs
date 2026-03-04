@@ -12,7 +12,6 @@ namespace ConsoleApp1.Services
 
         public ClientService()
         {
-            // Добавим тестовые данные
             clients.Add(new Client { Id = nextId++, Name = "Иван Петров", Phone = "+7(999)123-45-67", Email = "ivan@mail.ru" });
             clients.Add(new Client { Id = nextId++, Name = "Мария Сидорова", Phone = "+7(999)765-43-21", Email = "maria@mail.ru" });
         }
