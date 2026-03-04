@@ -17,7 +17,7 @@ namespace ConsoleApp1.Services
             this.clientService = clientService;
             this.deskService = deskService;
 
-            // Добавим тестовые бронирования
+
             var testBooking = new Booking
             {
                 Id = nextId++,
@@ -49,12 +49,12 @@ namespace ConsoleApp1.Services
 
         public string CreateBooking(int clientId, int deskId, DateTime date, TimeSpan startTime, TimeSpan endTime)
         {
-            // Проверка существования клиента
+
             var client = clientService.GetClientById(clientId);
             if (client == null)
                 return "Ошибка: Клиент не найден";
 
-            // Проверка существования стола
+
             var desk = deskService.GetDeskById(deskId);
             if (desk == null)
                 return "Ошибка: Стол не найден";
@@ -62,7 +62,7 @@ namespace ConsoleApp1.Services
             if (!desk.IsActive)
                 return "Ошибка: Стол недоступен для бронирования";
 
-            // Проверка на пересечение бронирований
+
             bool isBooked = bookings.Any(b =>
                 b.DeskId == deskId &&
                 b.Date.Date == date.Date &&
@@ -73,7 +73,7 @@ namespace ConsoleApp1.Services
             if (isBooked)
                 return "Ошибка: Стол уже забронирован на это время";
 
-            // Расчет стоимости
+
             decimal hours = (decimal)(endTime - startTime).TotalHours;
             decimal totalPrice = desk.PricePerHour * hours;
 
